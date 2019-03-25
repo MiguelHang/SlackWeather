@@ -1,6 +1,8 @@
-import './keys';
-const slackBot = require('slackBots');
-const axios = require('axios');
+'use strict';
+
+import { APP_TOKEN, WEATHER_API } from './keys'
+import slackBot from 'slackbots'
+import axios from 'axios'
 
 const bot = new slackBot({
     token: APP_TOKEN,
@@ -50,7 +52,9 @@ function handleMessage(message) {
         
     })
     .catch((err) => {
-        // console.log(err.response.data);
+        const params = {
+            icon_emoji: ':bangbang:'
+        }
         bot.postMessageToChannel(
             'general',
             err.response.data.message,

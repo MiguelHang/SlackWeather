@@ -1,12 +1,13 @@
+import './keys';
 const slackBot = require('slackBots');
 const axios = require('axios');
 
 const bot = new slackBot({
-    token: '',
+    token: APP_TOKEN,
     name: 'weatherBot'
 });
 
-const APIWeather = '';
+const APIWeather = WEATHER_API;
 
 bot.on('start', () => {
     const params = {
